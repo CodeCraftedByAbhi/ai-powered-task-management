@@ -9,10 +9,11 @@ function Dashboard() {
   const { token } = useAuth();
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/tasks", {
+      const res = await axios.get(`${apiUrl}/tasks`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(res.data);

@@ -9,6 +9,8 @@ function TaskForm({ onTaskCreated }) {
   const [category, setCategory] = useState("General");
   const [priority, setPriority] = useState("Low");
   const [dueDate, setDueDate] = useState("");
+    const apiUrl = process.env.REACT_APP_API_URL;
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ function TaskForm({ onTaskCreated }) {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/tasks",
+        `${apiUrl}/tasks`,
         { title, category, priority, dueDate },
         { headers: { Authorization: `Bearer ${token}` } }
       );

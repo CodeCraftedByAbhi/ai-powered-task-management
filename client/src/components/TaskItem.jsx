@@ -3,6 +3,8 @@ import { useAuth } from "../context/AuthContext";
 
 function TaskItem({ task, onDelete, onUpdate }) {
   const { token } = useAuth();
+    const apiUrl = process.env.REACT_APP_API_URL;
+
 
   const toggleStatus = async () => {
     try {
@@ -12,7 +14,7 @@ function TaskItem({ task, onDelete, onUpdate }) {
       };
 
       const res = await axios.put(
-        `http://localhost:5000/api/tasks/${task._id}`,
+        `${apiUrl}/tasks/${task._id}`,
         updated,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -35,7 +37,7 @@ function TaskItem({ task, onDelete, onUpdate }) {
 
   const deleteTask = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${task._id}`, {
+      await axios.delete(`${apiUrl}/tasks/${task._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       onDelete(task._id);

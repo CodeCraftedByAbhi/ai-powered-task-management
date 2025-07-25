@@ -7,6 +7,8 @@ function AISuggestions({ onTaskAdded, existingTasks }) {
   const [prompt, setPrompt] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -15,7 +17,7 @@ const handleSubmit = async (e) => {
   setLoading(true);
   try {
     const res = await axios.post(
-      "http://localhost:5000/api/ai/suggest",
+      `${apiUrl}/ai/suggest`,
       { prompt },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -49,7 +51,7 @@ const handleSubmit = async (e) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/tasks",
+        `${apiUrl}/tasks`,
         { title, category: "AI", priority: "Medium" },
         { headers: { Authorization: `Bearer ${token}` } }
       );
