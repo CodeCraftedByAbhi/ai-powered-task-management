@@ -44,18 +44,17 @@ function Dashboard() {
 
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid p-2">
         <div className="row">
           {/* Left side: Task Form + List */}
           <div className="col-lg-7 mb-4">
             <div className="card shadow-sm mb-3">
               <div className="card-body">
-                <h5 className="card-title">Add Task</h5>
                 <TaskForm onTaskCreated={handleTaskCreated} />
               </div>
             </div>
 
-            <div className="card shadow-sm">
+            <div className="card p-2 shadow-sm">
               <div
                 className="card-body"
                 style={{ maxHeight: "400px", overflowY: "auto" }}

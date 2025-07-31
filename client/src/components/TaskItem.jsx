@@ -48,7 +48,7 @@ function TaskItem({ task, onDelete, onUpdate }) {
 
   return (
     <div
-      className={`card mb-2 shadow-sm border ${
+      className={`card mb-2 shadow-sm border-2 ${
         task.status === "Completed" ? "border-success" : "border-secondary"
       }`}
     >
