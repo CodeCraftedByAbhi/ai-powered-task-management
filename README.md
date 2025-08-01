@@ -1,6 +1,6 @@
 # 🧠 AI-Powered Task Manager
 
-An intelligent task management system powered by OpenAI that helps you create, organize, and enhance your daily tasks with AI-generated suggestions.
+An intelligent task management system powered by OpenRouter.ai that helps you create, organize, and enhance your daily tasks with AI-generated suggestions.
 
 ---
 
